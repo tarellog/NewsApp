@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6DADA"
+    android:padding="30dp"
+    tools:context=".SecondActivity">
+
+    <TextView
+        android:id="@+id/view_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@tools:sample/lorem"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/view_img"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="40sp"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:fontFamily="@font/country_western_regular"
+        />
+
+    <ImageView
+        android:id="@+id/view_img"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        tools:src="@tools:sample/backgrounds/scenic"
+        app:layout_constraintTop_toBottomOf="@id/view_title"
+        app:layout_constraintBottom_toTopOf="@id/view_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/view_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@tools:sample/lorem/random"
+        app:layout_constraintTop_toBottomOf="@id/view_img"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:maxLines="16"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/ofont_ru_pragmatica"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
