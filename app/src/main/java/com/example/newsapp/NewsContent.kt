@@ -3,6 +3,8 @@ package com.example.newsapp
 import com.google.gson.annotations.SerializedName
 
 data class NewsContent(
+    @SerializedName("author")
+    val author: String,
     @SerializedName("category")
     val category: List<String>,
     @SerializedName("description")

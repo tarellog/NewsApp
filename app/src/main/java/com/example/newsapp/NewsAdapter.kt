@@ -3,9 +3,9 @@ package com.example.newsapp
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class NewsAdapter(private val param:(NewsModel)->Unit):RecyclerView.Adapter<ViewHolder>() {
+class NewsAdapter(private val param:(NewsContent)->Unit):RecyclerView.Adapter<ViewHolder>() {
 
-    lateinit var list: List<String>
+    val list: MutableList<NewsContent> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(parent)
@@ -19,8 +19,8 @@ class NewsAdapter(private val param:(NewsModel)->Unit):RecyclerView.Adapter<View
         return list.size
     }
 
-    fun setLists(getList: List<String>){
-        list = getList
+    fun setLists(getList: List<NewsContent>){
+        list.addAll(getList)
         notifyDataSetChanged()
     }
 
