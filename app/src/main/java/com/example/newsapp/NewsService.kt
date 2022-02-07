@@ -11,9 +11,8 @@ interface NewsService {
         private const val API_KEY = "0Uly7kxXcOzyC0ANdX0UahhiFYy9vxtz5ixq0-pJ3j_ivNrb"
     }
 
-    @Headers("Authorization:$API_KEY")
-    @GET("latest-news?")
-
+    @Headers("Authorization: $API_KEY")
+    @GET("latest-news")
     fun getApi(): Call<NewsModel>
 
 }

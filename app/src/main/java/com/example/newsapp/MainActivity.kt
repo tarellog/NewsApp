@@ -3,26 +3,25 @@ package com.example.newsapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.newsapp.databinding.ActivityMainBinding
-import com.example.newsapp.databinding.ItemNewsBinding
 
 class MainActivity : AppCompatActivity() {
 
-//    Create binding
+    //    Create binding
     private var _binding:ActivityMainBinding? = null
     private val binding
-    get() = _binding?:throw NullPointerException("Binding is not initialized")
-//
+        get() = _binding?:throw NullPointerException("Binding is not initialized")
+    //
     private val dsgds: ResponseFun = ResponseRepository(this::repositoryCallback)
     val adapter: NewsAdapter = NewsAdapter(this::adapterCallback)
 
-//    callback
-    fun adapterCallback(param: NewsModel){
+    //    callback
+    fun adapterCallback(param: NewsContent){
 
     }
 
-//    callback Repository
-    fun repositoryCallback(callback: NewsModel){
-
+    //    callback Repository
+    fun repositoryCallback(model: NewsModel){
+        adapter.setLists(model.news)
     }
 
 
@@ -32,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.recycler.adapter = adapter
-        dsgds.ApiModel()
+        dsgds.apiModel()
     }
 
     override fun onStart() {

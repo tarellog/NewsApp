@@ -18,9 +18,7 @@ class ResponseRepository(private val callback:(NewsModel)->Unit) : ResponseFun {
 
     private val responCallback = object : Callback<NewsModel> {
         override fun onResponse(call: Call<NewsModel>?, response: Response<NewsModel>?) {
-//            Log.d("lox", response?.body().toString())
-//            response?.body().toString()
-            callback(response?.body().toString())
+            response?.body()?.let { callback(it) }
         }
 
         override fun onFailure(call: Call<NewsModel>?, t: Throwable?) {
@@ -29,7 +27,7 @@ class ResponseRepository(private val callback:(NewsModel)->Unit) : ResponseFun {
 
     }
 
-    override fun ApiModel() {
+    override fun apiModel() {
         api.getApi().enqueue(responCallback)
     }
 
