@@ -18,7 +18,7 @@ class ViewHolder(private val binding: ItemNewsBinding) : RecyclerView.ViewHolder
             .load(item.image)
             .into(binding.image)
         binding.root.setOnClickListener {
-
+            param(item)
         }
         binding.title.text = item.title
         binding.description.text = item.description
